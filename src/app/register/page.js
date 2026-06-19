@@ -24,6 +24,11 @@ export default function Register() {
       setError('Please fill in all required fields.');
       return;
     }
+
+    if (!formData.email.toLowerCase().endsWith('.edu.in')) {
+      setError('Please register with an institutional email address ending with .edu.in.');
+      return;
+    }
     
     if (formData.password.length < 8) {
       setError('Password must be at least 8 characters long.');

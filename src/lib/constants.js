@@ -20,6 +20,7 @@ export const ROUTES = {
   FORGOT_PASSWORD: '/forgot-password',
   DASHBOARD: '/dashboard',
   COACH: '/coach',
+  LESSON_EVAL: '/lesson-eval',
   HISTORY: '/history',
   ANALYTICS: '/analytics',
   ADMIN: '/admin',
@@ -31,6 +32,7 @@ export const ROUTES = {
 export const NAV_LINKS = [
   { label: 'Dashboard', href: ROUTES.DASHBOARD, icon: '📊', roles: ['teacher', 'hod', 'admin'] },
   { label: 'Coach', href: ROUTES.COACH, icon: '🎯', roles: ['teacher', 'hod'] },
+  { label: 'Lesson Eval', href: ROUTES.LESSON_EVAL, icon: '📄', roles: ['teacher', 'hod'] },
   { label: 'History', href: ROUTES.HISTORY, icon: '📜', roles: ['teacher', 'hod'] },
   { label: 'Analytics', href: ROUTES.ANALYTICS, icon: '📈', roles: ['hod', 'admin'] },
   { label: 'Admin', href: ROUTES.ADMIN, icon: '⚙️', roles: ['admin'] },

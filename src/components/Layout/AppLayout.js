@@ -1,14 +1,30 @@
 'use client';
 import { useAuth } from '@/context/AuthContext';
 import { useApp } from '@/context/AppContext';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 
 export default function AppLayout({ children }) {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
   const { toasts } = useApp();
+  const router = useRouter();
 
-  // If not logged in, we shouldn't render the layout, but the router will redirect
+  useEffect(() => {
+    if (!loading && !user) {
+      router.push('/login');
+    }
+  }, [user, loading, router]);
+
+  if (loading) {
+    return (
+      <div className="flex-center" style={{ height: '100vh', background: 'var(--color-bg-page)' }}>
+        <div className="spinner" style={{ borderColor: 'var(--color-primary)', borderTopColor: 'transparent', width: 40, height: 40, borderWidth: 4 }}></div>
+      </div>
+    );
+  }
+
   if (!user) return null;
 
   return (
